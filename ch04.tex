@@ -991,3 +991,46 @@ Otherwise, you might find yourself debugging two methods at the same time, which
 One of the purposes of this exercise is to practice pattern-matching: the ability to recognize a specific problem as an instance of a general category of problems.
 
 \end{exercise}
+
+\begin{exercise}
+Write a program that implements the following methods:
+
+\begin{itemize}
+\item \java{reciprocal}, which takes a \java{double x} as its parameter and returns \java{1.0 / x} (the reciprocal).
+\item \java{arithmeticMean}, which takes three \java{double} values as parameters and returns their average: 
+\begin{equation*}
+{{a + b + c}\over 3}
+\end{equation*}
+\item \java{geometricMean}, which takes three \java{doubles}\ as parameters and returns the geometric mean:
+\begin{equation*}
+\sqrt[3]{a\cdot b\cdot c}
+\end{equation*}
+(Hint: use \java{Math.pow(x, 1.0 / 3.0)} to get a cube root.)
+\item \java{harmonicMean}, which takes three \java{doubles} as parameters and returns the harmonic mean:
+\begin{equation*}
+3\over {{1\over a} + {1\over b} + {1\over c}}
+\end{equation*}
+Write this method to calculate the result as the reciprocal of the arithmetic mean of the individual reciprocals.  (The arithmetic mean of the reciprocals is ${{1\over a} + {1\over b} + {1\over c}}\over 3$; the reciprocal of {\em that} is the harmonic mean.) This is another instance where one method calls another method---in this case, many times---to do a calculation.
+\end{itemize}
+
+The \java{main} method will calculate the arithmetic, geometric, and harmonic means of 3.6, 7.0, and 11.0.
+\end{exercise}
+
+\begin{exercise}
+In this exercise, you will write a program that prompts the user for information about a loan. The program will calculate the monthly payment for the loan, based on:
+\begin{itemize}
+\item The amount of the loan, also called the ``principal''.
+\item The annual interest rate as a percentage.
+\item The number of years of the loan.
+\end{itemize}
+
+Write a method named \java{calculatePayment} that takes the principal, annual percentage rate, and number of years as its parameters. The method calculates and returns the monthly payment on the loan with this formula:
+\begin{equation*}
+payment = {{r\cdot p}\over {1-(1+r)^{-n}}}
+\end{equation*}
+where $p$ is the principal, $r$ is the {\em monthly} interest rate as a decimal, and $n$ is the number of {\em months} of the loan.
+
+Although the preceding formula uses single-letter variables, it's preferable to use variable names like \java{principal}, \java{rate}, and \java{months} in your program for readability. (The annual percentage rate and months can use names like \java{annualRate} and \java{years}.)
+
+The \java{main} method will prompt the user for the principal, annual percentage rate, and number of years. It will then call the \java{calculatePayment} method with this information and display the returned result, properly labeled. Your output should use \java{printf} to display the payment with exactly two digits following the decimal point.
+\end{exercise}

@@ -797,7 +797,26 @@ You get two points if you find the error without compiling the program, one poin
 
 \end{exercise}
 
+\begin{exercise}
+\label{ex:dewpoint}
+The point of this exercise is to do a simple calculation with Java's arithmetic operator.
 
+\begin{enumerate}
+
+\item Create a new program name {\it DewPoint.java}.
+Copy or type in someting like the Hellow World program and make sure you can compile and run it.
+
+\item Following the example in Section~\ref{sec:printvar}, write a program that creates variables named \java{temperature} and \java{relHumidity} which represent the temperature in degrees Celsius and the relative humidity as a percentage from 0 to 100. Assign values to those variables that represent a temperature of 15$^\circ$C and a relative humidity of 30\%.
+
+\item Display the value of each variable on a line by itself.
+This is an intermediate step that is  useful for checking that everything is working so far.
+Compile and run your program before moving on.
+
+\item Calculate the dew point temperature using this approximate formula:
+$dewPoint = temperature - {{100 - relHumidity} \over 5}$ and display the value of the result.
+\end{enumerate}
+
+\end{exercise}
 \begin{exercise}  %%V6 Ex2.2
 \label{ex:date}
 
@@ -861,4 +880,31 @@ Then write code to compute the elapsed time since you started working on this ex
 {\em Hint:} You might want to use additional variables to hold values during the computation.
 Variables that are used in a computation but never displayed are sometimes called ``intermediate'' or ``temporary'' variables.
 
+\end{exercise}
+
+\begin{exercise}
+This exercise uses a fairly large formula to calculate the {\it heat index}, a measurement of how hot it feels when the relative humidity is factored in with the temperature. The purpose of this exercise is to get you comfortable with doing complex calculations in Java.
+
+\begin{enumerate}
+\item Create a new program named {\it HeatIndex.java}.
+
+\item Following the example program in Section~\ref{sec:printvar}, create variables named \java{t} and \java{rh}, where \java{t} stands for the temperature and \java{rh} stands for the relative humidity. Set the temperature to 25 degrees Celsius and the relative humidity to 45\%.
+
+\item Ordinarily we would use longer variable names like \java{temperature} and \java{relHumidity} as in Exercise~\ref{ex:dewpoint}, but the length of the formula makes it easier to type when using short names. Write a comment in your Java program that says that you are using \java{t} to stand for the temperature in degrees Celsius and \java{rh} for relative humidity.
+
+\item Calculate the heat index using this formula:
+\begin{equation*}
+\begin{array}{l}
+heatIndex = -8.78469475556 + 1.61139411\cdot t + 2.338548839\cdot rh - \\
+ \qquad {0.14611605}\cdot t \cdot rh - {0.012308094}\cdot t\cdot t - \\
+ \qquad {0.0164248278}\cdot rh\cdot rh + 0.002211732\cdot t\cdot t\cdot rh + \\
+ \qquad 0.00072546\cdot t\cdot rh\cdot rh {-} {0.000003582} \cdot t\cdot t\cdot rh\cdot rh
+\end{array}
+\end{equation*}
+
+Don't put this entire equation on one line in Java. Instead, split it into several lines as shown here, or use temporary variables to hold the parts of the formula.
+
+\item Display the result of the calculation.
+
+\end{enumerate}
 \end{exercise}

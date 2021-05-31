@@ -793,8 +793,79 @@ For example, {\tt "5000 seconds = 1 hours, 23 minutes, and 20 seconds"}.
 
 \end{exercise}
 
-
 \begin{exercise}  %%V6 Ex3.4
+\label{purchase}
+
+The goal of this exercise is to calculate the price of an order given an item's price, the quantity purchased, and the sales tax.
+When it's finished, it should work like this:
+
+\begin{stdout}
+Please enter the unit price of the item $2.45
+Enter the number you wish to purchase: 5
+
+Subtotal:     $12.25
+Tax at 7.50%:   0.92
+Total:        $13.17
+\end{stdout}
+
+Note: the dollar sign in the first line is part of the prompt; the user does not enter the dollar sign.
+Hint: use \java{printf} to 
+
+\begin{enumerate}
+\item Start by defining variables for the item price (a \java{double}), number purchased (an \java{int}), the subtotal, amount of tax on the purchase, and the total.
+
+\item Define a constant (\java {final}) for the sales tax and set it to 7.5\%.
+%Instructions for downloading this code are on page~\pageref{code}.
+
+\item Create a \java{Scanner} for doing input.
+
+\item Compile and run this program.
+
+\item Modify the program to prompt the user for the item price; then use the \java{Scanner} to read the price as a \java{double} and display the result. Compile and test the program.
+
+\item Add the code to prompt the user for the quantity purchased; then use the \java{Scanner} to read the quantity as an \java{int} and display the result. Compile and test the program.
+
+\item Add the code to calculate the subtotal and display it. Again, compile and test.
+
+\item Add the code to calculate the amount of tax for the purchase and display it. Compile and test.
+
+\item Add the code to calculate the total (subtotal plus tax) and display it. Compile and test.
+\end{enumerate}
+
+\end{exercise}
+
+\begin{exercise}
+\label{brakingDistance}
+
+This is another exercise that uses input and arithmetic operators to calculate the braking distance for a vehicle. Write a program that prompts the user to enter:
+
+\begin{itemize}
+
+\item The initial velocity in kilometers per hour (\java{double}). A velocity of 60 miles per hour works out to about 97 kilometers per hour.
+\item The reaction time in seconds (\java{double}). For most people, the reaction time is about 1.5 seconds.
+\item The coefficient of friction for the tires (\java{double}). This is a dimensionless number, normally about 0.7.
+
+\end{itemize}
+
+Calculate and display the stopping distance using this formula:
+$d = v \cdot t + {v^2 \over {2 \mu g}}$
+where $t$ is the reaction time, $v$ is the initial velocity in {\bf meters per second}, $\mu$ is the coefficient of friction between the tires and the roadway, and $g$ is the acceleration of gravity in meters per second squared. Make $g$ a constant with the value 9.80665.
+
+Notice that, since you are asking for the velocity in kilometers per hour, you must convert it to meters per second. Define constants \java{METERS_PER_KM} (1000) and \java{SECONDS_PER_HOUR} (3600) to use in this calculation.
+
+Here is an example of what the program should look like:
+
+\begin{stdout}
+Stopping Distance Calculator
+Enter velocity of vehicle in kilometers per hour: 97
+Enter reaction time in seconds (normal is 1.5): 1.1
+Enter coefficient of friction (from 0.1 to 1.0, normal is 0.7): 0.5
+
+Stopping distance is 103 meters.
+\end{stdout}.
+\end{exercise}
+
+\begin{exercise}  %%V6 Ex3.6
 \label{guess}
 
 The goal of this exercise is to program a {\it Guess My Number} game.
@@ -856,3 +927,23 @@ Again, compile and test.
 \end{enumerate}
 
 \end{exercise}
+
+\begin{exercise}
+The goal of this exercise is to show the need for planning a program. The calculations themselves are not sophisticated, but figuring out {\em what} those calculations are requires some thinking.
+
+Consider a staircase as shown in the following figure:
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics{figs/staircase.pdf}
+\caption{A staircase showing the width, the {\em rise} (height), and the {\em run} (depth) of a step.}
+\label{fig:staircase}
+\end{center}
+\end{figure}
+
+Your job is to write a program that prompts the user for the number of steps in the staircase. It will then prompt for and read the width, rise, and run of a step in centimeters. The program will then calculate the number of cubic centimeters of concrete necessary to build the staircase.
+
+{\em Hints:} How many ``blocks'' the size of the bottom step do you need to build the staircase? Drawing a diagram {\em really} helps. To find the sum of the numbers 1 through n, use this formula: $sum = {{n(n+1)}\over 2}$
+\end{exercise}
+
+
