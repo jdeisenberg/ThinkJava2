@@ -894,3 +894,213 @@ Reuse your code from the previous exercise to validate the inputs.
 Display an error if any of the lengths are negative or zero.
 
 \end{exercise}
+
+\begin{exercise}
+Here is a table of wavelength ranges associated with the colors of visible light.
+
+\renewcommand{\arraystretch}{1.5}  % put padding in array cells
+\begin{tabular}{|l|l|l|r|}
+\hline
+{\bf Wavelength $\lambda$  in nm} & {\bf Color}\\ \hline
+$0 < \lambda < 380$ & Ultraviolet \\ \hline
+$380 \leq \lambda < 450$ & Violet \\ \hline
+$450 \leq \lambda < 485$ & Blue \\ \hline
+$485 \leq \lambda < 500$ & Cyan \\ \hline
+$500 \leq \lambda < 565$ & Green \\ \hline
+$565 \leq \lambda < 590$ & Yellow \\ \hline
+$590 \leq \lambda < 625$ & Orange \\ \hline
+$625 \leq \lambda < 700$ & Red \\ \hline
+$700 \leq \lambda \leq 1000$ & Infrared \\ \hline
+\end{tabular}
+
+\renewcommand{\arraystretch}{1.0} % reset to no padding
+
+Write a program that prompts the user for the wavelength of light and prints the corresponding color. If the value is less than or equal to zero or greater than 1000, print an error that tells what the correct range should be. Using an if-else chain is probably the best way to approach this exercise.
+\end{exercise}
+
+\begin{exercise}
+Here is a table that gives ticket prices for a movie theater. The price depends on the day of week, time of day, and age of the customer.
+
+\renewcommand{\arraystretch}{1.5}  % put padding in array cells
+
+\begin{tabular}{|l|l|l|r|}
+\hline
+Day & Time & Age & Price \\ \hline
+Mon--Fri & Before 2 p.m. & All & \$5.00 \\ \cline {2-4}
+& After 2 p.m. & Teen/Adult & \$6.00 \\
+& & Child/Senior & \$4.50\\ \hline
+Sat--Sun & Before 1 p.m. & Teen/Adult & \$6.50 \\
+& & Child/Senior & \$5.25 \\ \cline{2-4}
+& After 1 p.m. & Teen/Adult & \$8.00 \\
+& & Child/Senior & \$5.50 \\ \hline
+\end{tabular}
+
+\renewcommand{\arraystretch}{1.0} % reset to no padding
+
+Write a program that asks the user for:
+\begin{itemize}
+\item The day of the week, where 1 stands for Monday and 7 stands for Sunday
+\item The time of day as an hour from 0 (midnight) to 23 (11:00 p.m.)
+\item The customer's age. If a customer's age is from 13 to 64 (inclusive), they are a ``Teen/Adult''. Everyone else is a ``Child/Senior''.
+\end{itemize}
+
+The program then prints the ticket price for the customer. {\em Hint:} To make your code easier to read, write a method named \java{isTeenAdult} that takes the customer's age as its parameter and returns a \java{boolean} \java{true} if the age is from 13 to 64 (inclusive), \java{false} otherwise.
+
+Do not allow the user to enter a day outside the range 1-7, an hour outside the range 0-23, or an age less than zero.
+
+Using nested if-else statements is probably your best approach to this exercise.
+\end{exercise}
+
+\begin{exercise}
+Write a program that prompts the user for a number in the range 1-12 and returns the number of days of that month. If the month is 2 (February) print that the month has 28 days in a normal year and 29 in a leap year. Be sure to validate the input.  Here is what the output from running the program several times might look like:
+
+\begin{stdout}
+Enter a month number (1-12): 3
+Month number 3 has 31 days.
+
+Enter a month number (1-12): 14
+Invalid month; must be from 1 to 12.
+
+Enter a month number (1-12): 2
+Month number 2 has 28 days in a normal year
+and 29 days in a leap year.
+\end{stdout}
+
+{\em Hint}: Use a \java{switch} statement to set a variable with the number of days in the month. Then, use an \java{if} statement to determine whether the month is February or not and print the appropriate output. Do {\em not} put the \java{System.out.println} inside the \java{switch} statement---that would lead to unnecessarily duplicated code.
+
+\end{exercise}
+
+\begin{exercise}
+One phone messaging plan has a base cost of \$9.50 per month that includes 60 messages. You pay 4.5 cents for each message over 60 messages sent. The other messaging plan has a base cost of \$8.75 per month that includes 50 messages. You pay plus 5.2 cents for each message over 50 messages sent.
+
+Write a program that will:
+
+\begin{enumerate}
+\item Ask the user for number of messages sent (integer).
+\item Calculate and display the cost for the first plan.
+\item Calculate and display the cost for the second plan.
+\item Tell which plan is cheaper. The amounts for the two plans will never be exactly equal when the units are integers, although they may appear to be when rounded to two decimal places.
+\end{enumerate}
+
+Your program will use a method named \java{calculateCost} that returns the cost of a plan based on four parameters:
+\begin{itemize}
+\item The number of messages sent
+\item The base cost per month
+\item The number of messages included in the base cost (the ``base limit'')
+\item The cost per message when you go over the base limit
+\end{itemize}
+
+Here are the results of running the program several times. Your output does not have to look exactly like this, but it must reflect the same information. All monetary amounts must be displayed with two digits after the decimal point.
+
+\begin{stdout}
+Enter number of messages: 40
+Cost for plan one: $9.50
+Cost for plan two: $8.75
+Plan two is cheaper.
+
+Enter number of messages: 80
+Cost for plan one: $10.40
+Cost for plan two: $10.31
+Plan two is cheaper.
+
+Enter number of messages: 150
+Cost for plan one: $13.55
+Cost for plan two: $13.95
+Plan one is cheaper.
+\end{stdout}
+
+\end{exercise}
+
+\begin{exercise}
+This code fragment contains unnecessary condition tests:
+
+\begin{code}
+double bonus = 3.50;
+if (hours < 10) {
+    bonus = 0.50;
+} else if (hours >= 10 && hours < 20) {
+    bonus = 1.25;
+} else if (hours >= 20 && hours < 40) {
+    bonus = 2.25;
+}
+\end{code}
+
+It can be rewritten like this:
+
+\begin{code}
+double bonus = 3.50;
+if (hours < 10) {
+    bonus = 0.50;
+} else if (hours < 20) {
+    bonus = 1.25;
+} else if (hours < 40) {
+    bonus = 2.25;
+}
+\end{code}
+
+Why is it possible to eliminate the first condition before the \java{&&}? 
+
+Now consider this code:
+
+\begin{code}
+double bonus = 3.50;
+if (hours < 10) {
+    bonus = 0.50;
+}
+if (hours >= 10 && hours < 20) {
+    bonus = 1.25;
+}
+if (hours >= 20 && hours < 40) {
+    bonus = 2.25;
+}
+\end{code}
+
+Is it possible to eliminate the condition before the \java{&&} in this code? If so, why? If not, why not?
+\end{exercise}
+
+\begin{exercise}
+Here is a program that asks a user for their age in years, tells the user their approximate age in days, and gives them a discount based on how old they are:
+
+\begin{trinket}{DuplicatedCode.java}
+import java.util.Scanner;
+
+public class DuplicatedCode {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter your age in years: ");
+        if (in.hasNextInt()) {
+            int years = in.nextInt();
+            int days = years * 365;
+            double discount = 0.0;
+            if (years > 0 && years < 18) {
+                System.out.printf("That is about %d days.\n", days);
+                discount = years * 0.10;
+                System.out.printf("You get a discount of $%.2f\n",
+                    discount);
+            } else if (years < 21) {
+                System.out.printf("That is about %d days.\n", days);
+                discount = years * 0.15;
+                System.out.printf("You get a discount of $%.2f\n",
+                    discount);
+            } else if (years < 65) {
+                System.out.printf("That is about %d days.\n", days);
+                discount = years * 0.25;
+                System.out.printf("You get a discount of $%.2f\n",
+                    discount);
+            } else {
+                System.out.printf("That is about %d days.\n", days);
+                discount = years * 0.40;
+                System.out.printf("You get a discount of $%.2f\n",
+                    discount);
+            }
+        } else {
+            System.out.println("Age must be numeric.");
+        }
+    }
+}
+\end{trinket}
+
+The code works, but there is a lot of code that is repeated unnecessarily. Rewrite the code so that the code that prints the days and the code that prints the discount each appear only once in the program. Can you explain a general rule that tells when and how this sort of duplication can be eliminated?
+     
+\end{exercise}
