@@ -855,3 +855,54 @@ Write a method called \java{canSpell} that takes two strings and checks whether 
 You might have more than one tile with the same letter, but you can use each tile only once.
 
 \end{exercise}
+
+\begin{exercise}
+Write a program that repeatedly asks the user to enter a sentence (until they press only ENTER). For each sentence, tell how many vowels, consonants, digits, and ``other'' characters are in the sentence.  For this exercise, presume that the letter ``y'' is a vowel. Continue asking for sentences the user presses only the ENTER key for input. When that happens, the \java{String} that you read will equal the empty string \java{""}. You can test this condition to end the loop.
+
+Sample output:
+
+\begin{stdout}
+Input a sentence (just ENTER to quit): Four score & 7 years ago.
+Vowels:   9  Consonants:  8
+Digits:   1  Others:      7
+
+Input a sentence (just ENTER to quit): 2*x=17
+Vowels:   0  Consonants:  1
+Digits:   3  Others:      2
+
+Input a sentence (just ENTER to quit): The Quick Brown Fox
+Vowels:   5  Consonants: 11
+Digits:   0  Others:      3
+
+Input a sentence (just ENTER to quit):
+\end{stdout}
+
+{\em Hint}: Make \java{String} variables with contents such as \java{"aeiouy"}, \java{"bcdfghjklmnpqrstvwxz"}, etc. and use \java{indexOf} to determine whether a character belongs to that group of characters.
+
+\end{exercise}
+
+\begin{exercise}
+Write a method called \java{switchOrder}, which takes a \java{String} parameter with a person's name in the form \java{"first middle last"} and returns the name in the form \java{"last, first middle"}.  Your code should work for people with only a single name, people with no middle name, and people with several middle names. Here is some sample output:
+Use a \java{while} loop with the \java{indexOf} and \java{substring} methods to do this exercise. (You could do it more easily with the \java{lastIndexOf} method, but we want you to get practice using loops.)
+
+Write a \java{main} method that uses a \java{while} loop to repeatedly ask the user for a name and then calls the \java{switchOrder} method and prints the result. Repeat until the user presses just ENTER.
+
+\begin{stdout}
+Input a name (just ENTER to quit): Grace Murray Hopper
+Hopper, Grace Murray
+
+Input a name (just ENTER to quit): Donald Knuth   
+Knuth, Donald
+
+Input a name (just ENTER to quit): Prince
+Prince
+
+Input a name (just ENTER to quit): C. Anthony Richard Hoare
+Hoare, C. Anthony Richard
+
+Input a name (just ENTER to quit): 
+\end{stdout}
+
+\end{exercise}
+
+
