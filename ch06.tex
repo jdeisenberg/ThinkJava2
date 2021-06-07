@@ -802,6 +802,27 @@ You should not use \java{factorial} or \java{pow}.
 
 \end{exercise}
 
+\begin{exercise}
+When you go to the store, the clerk doesn't know in advance how many items you want to buy. Instead, they keep totaling the items until they see one of those plastic dividers to indicate that your order is complete.
+
+\index{sentinel value}
+\index{value!sentinel}
+Write a program that repeatedly asks the user for the price of an item until they enter a zero for the price. This is the digital equivalent of the plastic divider. Its technical name is a {\em sentintel value}. As the user enters prices, keep track of the total number of items and sum of the prices.  After encountering the sentinel value, your program will print the number of items purchased, the subtotal, the tax (at a rate of 6.5\%), and the grand total. Here is what the program might look like. Note that it does not allow (or count) negative prices.
+
+\begin{stdout}
+Enter price, or 0 when finished: $3.50    
+Enter price, or 0 when finished: $-2
+Prices can not be negative.
+Enter price, or 0 when finished: $5.99
+Enter price, or 0 when finished: $4.83
+Enter price, or 0 when finished: $0
+
+Number of items: 3
+Subtotal:  $   14.32
+Tax:       $    0.93
+Total:     $   15.25
+\end{stdout}
+\end{exercise}
 
 \begin{exercise}  %%V6 Ex9.5
 
@@ -862,9 +883,9 @@ Write a program that repeatedly asks the user to enter a sentence (until they pr
 Sample output:
 
 \begin{stdout}
-Input a sentence (just ENTER to quit): Four score & 7 years ago.
-Vowels:   9  Consonants:  8
-Digits:   1  Others:      7
+Input a sentence (just ENTER to quit): 4 score & 7 years ago.
+Vowels:   7  Consonants:  6
+Digits:   2  Others:      7
 
 Input a sentence (just ENTER to quit): 2*x=17
 Vowels:   0  Consonants:  1
