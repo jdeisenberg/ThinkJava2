@@ -945,5 +945,19 @@ Write a \java{main} method to test the \java{standardize} method. For example, a
 \java{\{47.0, 11.0, 10.0, 66.0, 8.5\}} will generate these standard scores: \java{\{0.700, -0.662, -0.700, 1.418, -0.756\}} (to three decimal places). 
 
 \end{itemize}
+\end{exercise}
 
+\begin{exercise}
+Unlike the string reversal method we saw in Section~\ref{sec:stringiteration}, where we built a new string that had its characters in the reverse order of the original, in this exercise you will write a \java{void} method named \java{reverseInPlace} that takes an array of integers as its parameter and reverses the order of the items in the array--in place. In other words, you won't create a new array; you will change the order of the items within the array itself.
+
+Write a \java{main} method that will test the method by reversing and displaying:
+
+\begin{enumerate}
+\item An empty array with no elements
+\item An array with one element
+\item An array with an even number of elements (more than two elements)
+\item An array with an odd number of elements (more than three elements)
+\end{enumerate}
+
+To make your job easier, you might want to create a ``helper method'' named \java{reverseAndDisplay} that prints the array, calls \java{reverseInPlace} and prints the array (which should now be reversed).
 \end{exercise}
