@@ -925,3 +925,25 @@ For example, ``stop'' is an anagram of ``pots'', ``allen downey'' is an anagram 
 Write a method that takes two strings and checks whether they are anagrams of each other.
 
 \end{exercise}
+
+\begin{exercise}
+Write the following methods, each of which takes an array of \java{double} values as a parameter:
+
+\begin{itemize}
+\item The \java{mean} method returns the arithmetic mean (average) of the array elements.
+
+\item The \java{stdev} method returns the standard deviation of the array elements, using this formula
+\begin{equation*}
+s = \sqrt {{n \sum{x_i} ^2 - \left(\sum{x_i}\right)^2} \over {n (n - 1)}}
+\end{equation*}
+
+where $n$ is the number of items in the array, $\sum{x_i} ^2$ is the sum of the squares of the individual items, and $\left(\sum{x_i}\right)^2$ is the square of the total of all the items in the array.
+
+\item The \java{standardize} returns a new array of the values converted to {\em standard scores}. First, calculate the mean $m$ and standard deviation $s$ of the entries in the original array. Each entry in the result array will be \java{(arr[i] - m) / s}. This method must call the \java{mean} and \java{stdev} methods.
+
+Write a \java{main} method to test the \java{standardize} method. For example, an array with values
+\java{\{47.0, 11.0, 10.0, 66.0, 8.5\}} will generate these standard scores: \java{\{0.700, -0.662, -0.700, 1.418, -0.756\}} (to three decimal places). 
+
+\end{itemize}
+
+\end{exercise}
